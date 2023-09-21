@@ -139,8 +139,8 @@ void Game::render()
 
 	//Renderiza na tela o que for exibido
 	this->window->draw(this->backgroundSprite);
-	this->player->render(*this->window);
 	this->enemy->render(*this->window);
+	this->player->render(*this->window);
 
 	for (auto* bullet : this->bullets) {
 		bullet->render(this->window);
