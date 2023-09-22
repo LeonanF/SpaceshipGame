@@ -36,4 +36,8 @@ void GameOverScreen::render()
 	this->window.draw(this->gameOverText);
 
 	this->window.display();
+	
+	if (Keyboard::isKeyPressed(Keyboard::Key::Escape))
+		this->window.close();
+
 }

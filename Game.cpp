@@ -40,7 +40,8 @@ void Game::initSprite()
 void Game::initOverScreen()
 {
 	this->gameOverScreen = new GameOverScreen(*this->window);
-	this->gameOverScreen->initText("Você perdeu");
+
+	players[0]->getHealth() == 0 ? this->gameOverScreen->initText("Player 1 perdeu!") : this->gameOverScreen->initText("Player 2 perdeu");
 }
 
 //Construtor e destrutor
@@ -117,9 +118,8 @@ void Game::pollEvents()
 		if (gameOver) {
 			this->initOverScreen();
 			this->gameOverScreen->render();
-			this->gameOverScreen->render();
-			
 		}
+
 		if (ev.type == Event::Closed)
 			this->window->close();
 		if (ev.KeyPressed && ev.key.code == Keyboard::Escape)
